@@ -1,4 +1,4 @@
-const db = require('./db');
+const db = require('../db');
 const fs = require('fs');
 const path = require('path');
 
@@ -22,7 +22,8 @@ async function initializeDatabase() {
             console.log('📦 Tables not found. Creating database schema...');
 
             // Read and execute schema.sql
-            const schemaPath = path.join(__dirname, '../database/schema.sql');
+            // Go up two levels: scripts -> backend -> root -> database
+            const schemaPath = path.join(__dirname, '../../database/schema.sql');
             const schemaSql = fs.readFileSync(schemaPath, 'utf8');
 
             await db.query(schemaSql);

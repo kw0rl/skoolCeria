@@ -44,20 +44,11 @@ Panduan ini akan membantu anda deploy aplikasi SkoolCeria (Database, Backend, da
 5.  Klik **Create Web Service**.
 6.  Tunggu deploy selesai. Copy URL backend anda (contoh: `https://skoolceria-api.onrender.com`).
 
----
-
-## Langkah 3: Setup Table Database
-Sebab database baru kosong, kita kena create table.
-1.  Di dashboard Backend (Web Service) anda, pergi ke tab **Shell**.
-2.  Tunggu connected, kemudian taip:
-    ```bash
-    node scripts/update_schema.js
-    ```
-    *(Pastikan script ini wujud dan boleh run. Jika tidak, anda mungkin perlu connect guna DBeaver di PC anda guna External URL dan run SQL dalam `database/schema.sql`)*.
+> **💡 Nota Penting:** Database tables akan auto-create bila backend start untuk kali pertama. Anda boleh check di tab **Logs** untuk pastikan "✅ Database schema created successfully!" muncul.
 
 ---
 
-## Langkah 4: Deploy Frontend (Next.js)
+## Langkah 3: Deploy Frontend (Next.js)
 1.  Klik **New +** -> **Web Service** (atau Static Site, tapi Web Service lebih stabil untuk Next.js SSR).
 2.  Connect repository yang sama.
 3.  Isi maklumat:
